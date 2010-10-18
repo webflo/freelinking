@@ -111,8 +111,9 @@ function freelinking_nodetitle_nid_from_title(&$target) {
   if ($type != 'none') {
     $sql .= " AND type='%s'";    
     $result = db_query($sql, $title, $type);
+  } else {
+    $result = db_query($sql, $title);
   }
-  $result = db_query($sql, $title);
 
   $set = array();
   while ($res = db_fetch_object($result)) {
